@@ -1,6 +1,6 @@
-import { Context, createContext, useContext, useEffect, useState } from "react";
-import { addUser } from "../utils/db";
-import firebase from "./firebase";
+import { Context, createContext, useContext, useEffect, useState } from 'react';
+import { addUser } from '../utils/db';
+import firebase from './firebase';
 
 interface Auth {
   uid: string;
@@ -49,10 +49,10 @@ function useProvideAuth() {
 
   const signedIn = async (
     response: firebase.auth.UserCredential,
-    provider: String = "google"
+    provider: String = 'google'
   ) => {
     if (!response.user) {
-      throw new Error("No User");
+      throw new Error('No User');
     }
     const authUser = formatAuthState(response.user);
     await addUser({ ...authUser, provider });

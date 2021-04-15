@@ -8,11 +8,11 @@ import {
   RadioGroup,
   SimpleGrid,
   Text,
-} from "@chakra-ui/react";
-import { NextPageContext } from "next";
-import React from "react";
-import Navbar from "../../../../common/Navbar";
-import { getAnswer, getSingleQuiz } from "../../../../utils/db";
+} from '@chakra-ui/react';
+import { NextPageContext } from 'next';
+import React from 'react';
+import Navbar from '../../../../common/Navbar';
+import { getAnswer, getSingleQuiz } from '../../../../utils/db';
 
 const answer = (props) => {
   const quiz = JSON.parse(props.quiz);
@@ -31,7 +31,7 @@ const answer = (props) => {
             mt={4}
             mb={4}
             css={{
-              boxShadow: "1px 1px #888888",
+              boxShadow: '1px 1px #888888',
             }}
           />
           {quiz.questions.map((singleQuiz, index) => {
@@ -47,8 +47,8 @@ const answer = (props) => {
                   answer.questions[singleQuiz.questionId] &&
                   singleQuiz.options[singleQuiz.answer].optionId ===
                     answer.questions[singleQuiz.questionId]
-                    ? "green.200"
-                    : "red.200"
+                    ? 'green.200'
+                    : 'red.200'
                 }
               >
                 <Text>
@@ -68,7 +68,7 @@ const answer = (props) => {
                 </Text>
                 {answer.questions[singleQuiz.questionId] ? (
                   <Text>
-                    Selected Answer:{" "}
+                    Selected Answer:{' '}
                     {
                       singleQuiz.options.find(
                         (option) =>

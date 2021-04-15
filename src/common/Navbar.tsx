@@ -1,7 +1,7 @@
-import { Box, Divider, Flex, Heading, Link } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import React from "react";
-import { useAuth } from "../lib/auth";
+import { Box, Divider, Flex, Heading, Link } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
+import React from 'react';
+import { useAuth } from '../lib/auth';
 
 const Navbar: React.FC<{}> = () => {
   const { auth, signOut } = useAuth();
@@ -10,7 +10,7 @@ const Navbar: React.FC<{}> = () => {
   return (
     <>
       <Flex justify="space-between" m={4}>
-        <Heading onClick={() => router.push("/")} as="button">
+        <Heading onClick={() => router.push('/')} as="button">
           QuizApp
         </Heading>
         <Box>
@@ -19,9 +19,9 @@ const Navbar: React.FC<{}> = () => {
               <Link
                 p={2}
                 fontWeight={
-                  router.pathname === "/quiz/new" ? "extrabold" : "normal"
+                  router.pathname === '/quiz/new' ? 'extrabold' : 'normal'
                 }
-                onClick={() => router.push("/quiz/new")}
+                onClick={() => router.push('/quiz/new')}
               >
                 Add new quiz
               </Link>
@@ -33,9 +33,9 @@ const Navbar: React.FC<{}> = () => {
             <Box p={2}>
               <Link
                 p={2}
-                onClick={() => router.push("/signin")}
+                onClick={() => router.push('/signin')}
                 fontWeight={
-                  router.pathname === "/signin" ? "extrabold" : "normal"
+                  router.pathname === '/signin' ? 'extrabold' : 'normal'
                 }
               >
                 Sign In
@@ -46,7 +46,7 @@ const Navbar: React.FC<{}> = () => {
       </Flex>
       <Divider
         css={{
-          boxShadow: "1px 1px #888888",
+          boxShadow: '1px 1px #888888',
         }}
       />
     </>

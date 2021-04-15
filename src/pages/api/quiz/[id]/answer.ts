@@ -1,14 +1,14 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { auth } from "../../../../lib/firebase-admin";
-import { addAnswer as addAnswerFb } from "../../../../utils/db";
+import { NextApiRequest, NextApiResponse } from 'next';
+import { auth } from '../../../../lib/firebase-admin';
+import { addAnswer as addAnswerFb } from '../../../../utils/db';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   switch (req.method) {
-    case "POST":
+    case 'POST':
       await addAnswer(req, res);
       break;
     default:
-      res.status(405).json({ status: false, message: "Method Not found" });
+      res.status(405).json({ status: false, message: 'Method Not found' });
       break;
   }
 };
@@ -28,6 +28,6 @@ const addAnswer = async (req: NextApiRequest, res: NextApiResponse) => {
   } catch (error) {
     return res
       .status(500)
-      .json({ status: false, message: "Something went wrong" });
+      .json({ status: false, message: 'Something went wrong' });
   }
 };

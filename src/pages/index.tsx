@@ -1,17 +1,9 @@
-import {
-  Box,
-  Container,
-  Divider,
-  Flex,
-  Heading,
-  SimpleGrid,
-  Text,
-} from "@chakra-ui/react";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import React from "react";
-import Navbar from "../common/Navbar";
-import { getAllQuiz, getAllUsers } from "../utils/db";
+import { Box, Container, Divider, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import React from 'react';
+import Navbar from '../common/Navbar';
+import { getAllQuiz, getAllUsers } from '../utils/db';
 
 const Home = (props) => {
   const quiz = JSON.parse(props.quiz);
@@ -23,14 +15,14 @@ const Home = (props) => {
         <Heading as="h3" size="lg">
           {singleQuiz.title}
         </Heading>
-
-        <Text color="gray.500" mt={2}>
-          Posted By: {singleQuiz.user.name}
-        </Text>
-        <Text color="gray.500" mt={2}>
-          No of Questions: {singleQuiz.questions.length}
-        </Text>
-
+      
+          <Text color="gray.500" mt={2}>
+            Posted By: {singleQuiz.user.name}
+          </Text>
+          <Text color="gray.500" mt={2}>
+            No of Questions: {singleQuiz.questions.length}
+          </Text>
+   
         <Divider mt={3} mb={3} />
         <Text noOfLines={[1, 2, 3]}>{singleQuiz.description}</Text>
       </Box>
@@ -74,10 +66,7 @@ export async function getServerSideProps(_context) {
   const quiz = await getAllQuiz();
   const users = await getAllUsers();
   const data = quiz.map((singleQuiz: any) => {
-    return {
-      ...singleQuiz,
-      user: users.find((user) => user.id === singleQuiz.userId),
-    };
+    return { ...singleQuiz, user: users.find((user) => user.id === singleQuiz.userId)};
   });
   return { props: { quiz: JSON.stringify(data) } };
 }

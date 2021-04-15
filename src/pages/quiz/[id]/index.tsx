@@ -10,15 +10,15 @@ import {
   RadioGroup,
   SimpleGrid,
   Text,
-} from "@chakra-ui/react";
-import { Field, Form, Formik } from "formik";
-import { NextPageContext } from "next";
-import { useRouter } from "next/router";
-import React, { useEffect } from "react";
-import Navbar from "../../../common/Navbar";
-import { useAuth } from "../../../lib/auth";
-import { getSingleQuiz } from "../../../utils/db";
-import { addAnswerApi } from "../../../utils/service";
+} from '@chakra-ui/react';
+import { Field, Form, Formik } from 'formik';
+import { NextPageContext } from 'next';
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
+import Navbar from '../../../common/Navbar';
+import { useAuth } from '../../../lib/auth';
+import { getSingleQuiz } from '../../../utils/db';
+import { addAnswerApi } from '../../../utils/service';
 
 const ShowQuiz = (quiz, onSubmit) => {
   return (
@@ -42,7 +42,7 @@ const ShowQuiz = (quiz, onSubmit) => {
         mt={4}
         mb={4}
         css={{
-          boxShadow: "1px 1px #888888",
+          boxShadow: '1px 1px #888888',
         }}
       />
       <Formik initialValues={{}} onSubmit={onSubmit}>
@@ -111,7 +111,7 @@ const SingleQuiz = (props) => {
       const answerId = resp.data.data.answerId;
       router.push(`/quiz/${props.quizId}/answer/${answerId}`);
     } catch (error) {
-      console.log("error", error);
+      console.log('error', error);
     } finally {
       actions.setSubmitting(false);
     }

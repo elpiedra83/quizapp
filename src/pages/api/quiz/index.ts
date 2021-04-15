@@ -1,14 +1,14 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { auth } from "../../../lib/firebase-admin";
-import { addQuiz as addQuizFb } from "../../../utils/db";
+import { NextApiRequest, NextApiResponse } from 'next';
+import { auth } from '../../../lib/firebase-admin';
+import { addQuiz as addQuizFb } from '../../../utils/db';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   switch (req.method) {
-    case "POST":
+    case 'POST':
       await addQuiz(req, res);
       break;
     default:
-      res.status(405).json({ status: false, message: "Method Not found" });
+      res.status(405).json({ status: false, message: 'Method Not found' });
       break;
   }
 };
@@ -20,10 +20,10 @@ const addQuiz = async (req: NextApiRequest, res: NextApiResponse) => {
     await addQuizFb(quizData);
     return res
       .status(200)
-      .json({ status: true, message: "Quiz added successfully..." });
+      .json({ status: true, message: 'Quiz added successfully...' });
   } catch (error) {
     return res
       .status(500)
-      .json({ status: false, message: "Something went wrong" });
+      .json({ status: false, message: 'Something went wrong' });
   }
 };
